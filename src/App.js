@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import SearchBooks from './components/SearchBooks'
 import ListBooks from './components/ListBooks'
+import Header from './components/Header'
 import * as BooksAPI from './utils/BooksAPI'
 import './App.css'
 
@@ -16,12 +17,16 @@ class BooksApp extends React.Component {
     books : []
   }
 
-  changeShelf = (newShelf, book) => {
+  updateShelf = (newShelf, book) => {
     book.shelf = newShelf
-    const i = this.state.books.indexOf(book)
-    const newBooks = this.state.books
-    newBooks[i] = book
-    this.setState({ books : newBooks })
+
+    let { books } = this.state
+    const i = books.indexOf(book)
+    books[i] = book
+    this.setState({ books })
+    BooksAPI.update(book, newShelf).then(response => {
+      console.log(response)
+    })
   }
 
   componentDidMount() {
@@ -34,10 +39,15 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Route exact path="/" render={() => (
+          <div className="list-books">
+          <Header 
+            title="My Reads"
+          />
           <ListBooks 
             books={this.state.books}
-            onChangeShelf={ (event, book) => this.changeShelf(event.target.value, book)}
+            onChangeShelf={ (event, book) => this.updateShelf(event.target.value, book)}
           />
+          </div>
         )} />
         <Route path="/search" component={SearchBooks} />
       </div>
