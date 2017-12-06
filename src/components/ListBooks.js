@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookItem from './BookItem'
 import { uniq } from 'underscore'
+import sortBy from 'sort-by'
 
 class ListBooks extends Component  {
 
@@ -20,15 +21,16 @@ class ListBooks extends Component  {
 
   getBooksByShelf(books) {
     const shelfs = uniq(books.map( book => book.shelf ))
+    
     return shelfs.map(shelf => {
       return  {
         "shelfTitle" : this.getTitleShelf(shelf), 
         "books": books.filter(book => book.shelf === shelf)
-      }})
+      }}).sort(sortBy('shelfTitle'))
   } 
 
     render () {
-      const { books } = this.props
+      const { books, onChangeShelf } = this.props
       const booksByShelf = this.getBooksByShelf(books)
       return (
         <div className="list-books">
@@ -48,6 +50,8 @@ class ListBooks extends Component  {
                           title={book.title}
                           author={book.authors[0]} 
                           backgroundImage={book.imageLinks.smallThumbnail}
+                          shelf={book.shelf}
+                          onChangeShelf={ e => onChangeShelf(e, book)}
                         />
                     </li>
                     ))}
