@@ -15,7 +15,7 @@ class ListBooks extends Component  {
       case "read":
         return "Read"
       default:
-        return shelfId
+        return ""
     }
   }
 
@@ -30,13 +30,11 @@ class ListBooks extends Component  {
   } 
 
     render () {
-      const { books, onChangeShelf } = this.props
+      const { books = [], onChangeShelf } = this.props
       const booksByShelf = this.getBooksByShelf(books)
+      console.log(booksByShelf)
       return (
-        <div className="list-books">
-        <div className="list-books-title">
-          <h1>MyReads</h1>
-        </div>
+        <div>
         <div className="list-books-content">
           <div>  
             {booksByShelf.map(shelf => (
