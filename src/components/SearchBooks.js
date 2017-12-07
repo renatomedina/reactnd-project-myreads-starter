@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import ListBooks from './ListBooks'
+import ShelfBooks from './ShelfBooks'
 import * as BooksAPI from '../utils/BooksAPI'
 
 class SearchBooks extends Component {
@@ -9,16 +9,31 @@ class SearchBooks extends Component {
     searchBooks : []
   }
   
-  handleChange = event => { 
+  handleChange = (event, libaryBooks) => { 
     const query = event.target.value
+    BooksAPI.search(query).then(searchBooks => {
+    
+    libaryBooks.map(libaryBook => {
+       return searchBooks.map(searchBook => {
+          if (libaryBook.id === searchBook.id)
+            searchBook.shelf = libaryBook.shelf
+          return searchBook
+       })
+    })
 
-    BooksAPI.search(query, "100").then(searchBooks => {
-      console.log(searchBooks)
+    if(searchBooks.items && searchBooks.items.length === 0) { 
+      searchBooks = []
+    }
+
       this.setState({ searchBooks })
     })
   }
 
   render() {
+
+    const { searchBooks } = this.state
+    const { addBookHandler, libaryBooks } = this.props
+
     return (
       <div className="search-books">
       <div className="search-books-bar">
@@ -30,17 +45,17 @@ class SearchBooks extends Component {
           <input 
             type="text" 
             placeholder="Search by title or author"
-            onChange={this.handleChange}
+            onChange={e => this.handleChange(e, libaryBooks)}
           />
         </div>
       </div>
       <div className="search-books-results">
         <ol className="books-grid"></ol>
       </div>
-      <ListBooks 
-            books={this.state.searchBooks}
-            // onChangeShelf={ (event, book) => this.updateShelf(event.target.value, book)}
-          />
+      <ShelfBooks
+          books={searchBooks}
+          onChangeShelf={addBookHandler}  
+      />
     </div>
     )
   }

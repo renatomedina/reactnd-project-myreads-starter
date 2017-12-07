@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import BookItem from './BookItem'
 import { uniq } from 'underscore'
 import sortBy from 'sort-by'
+
+import ShelfBooks from './ShelfBooks'
 
 class ListBooks extends Component  {
 
@@ -15,7 +16,7 @@ class ListBooks extends Component  {
       case "read":
         return "Read"
       default:
-        return ""
+        return "None"
     }
   }
 
@@ -38,23 +39,12 @@ class ListBooks extends Component  {
         <div className="list-books-content">
           <div>  
             {booksByShelf.map(shelf => (
-              <div key={shelf.shelfTitle} className="bookshelf">
-                <h2 className="bookshelf-title">{shelf.shelfTitle}</h2>
-                <div className="bookshelf-books">
-                  <ol className="books-grid">
-                    {shelf.books.map(book => (
-                      <li key={book.id}>
-                        <BookItem 
-                          title={book.title}
-                          author={book.authors[0]} 
-                          backgroundImage={book.imageLinks.smallThumbnail}
-                          shelf={book.shelf}
-                          onChangeShelf={ e => onChangeShelf(e, book)}
-                        />
-                    </li>
-                    ))}
-                  </ol>
-                </div>
+              <div key={shelf.shelfTitle}>
+                <ShelfBooks 
+                  title={shelf.shelfTitle}
+                  books={shelf.books}
+                  onChangeShelf={onChangeShelf}  
+                />
               </div>
             ))}
           </div>
