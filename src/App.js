@@ -29,6 +29,17 @@ class BooksApp extends React.Component {
     })
   }
 
+  addBook = (shelf, newBook) => {
+    newBook.shelf = shelf
+    
+    let { books } = this.state
+    books = books.concat(newBook)
+    this.setState({ books })
+    BooksAPI.update(newBook, shelf).then(response => {
+      console.log(response)
+    })
+  }
+
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
@@ -40,16 +51,21 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route exact path="/" render={() => (
           <div className="list-books">
-          <Header 
-            title="My Reads"
-          />
-          <ListBooks 
-            books={this.state.books}
-            onChangeShelf={ (event, book) => this.updateShelf(event.target.value, book)}
-          />
+            <Header 
+              title="My Reads"
+            />
+            <ListBooks 
+              books={this.state.books}
+              onChangeShelf={ (shelf, book) => this.updateShelf(shelf, book)}
+            />
           </div>
         )} />
-        <Route path="/search" component={SearchBooks} />
+        <Route path="/search" render={() => (
+          <SearchBooks 
+            libaryBooks={this.state.books}
+            addBookHandler={ (shelf, book) => this.addBook(shelf, book)}
+          />
+        )} />
       </div>
     )
   }
