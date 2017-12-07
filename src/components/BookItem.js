@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ title, author, backgroundImage, onChangeShelf, shelf }) => {
+export default ({ title = "", author = "", backgroundImage, onChangeShelf, shelf = "none" }) => {
 
     return (
         <div className="book">
