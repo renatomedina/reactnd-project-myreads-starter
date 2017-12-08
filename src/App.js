@@ -14,7 +14,7 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    books : []
+    books: []
   }
 
   updateShelf = (newShelf, book) => {
@@ -31,7 +31,7 @@ class BooksApp extends React.Component {
 
   addBook = (shelf, newBook) => {
     newBook.shelf = shelf
-    
+
     let { books } = this.state
     books = books.concat(newBook)
     this.setState({ books })
@@ -51,19 +51,19 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route exact path="/" render={() => (
           <div className="list-books">
-            <Header 
+            <Header
               title="My Reads"
             />
-            <ListBooks 
+            <ListBooks
               books={this.state.books}
-              onChangeShelf={ (shelf, book) => this.updateShelf(shelf, book)}
+              onChangeShelf={(shelf, book) => this.updateShelf(shelf, book)}
             />
           </div>
         )} />
         <Route path="/search" render={() => (
-          <SearchBooks 
+          <SearchBooks
             libaryBooks={this.state.books}
-            addBookHandler={ (shelf, book) => this.addBook(shelf, book)}
+            addBookHandler={(shelf, book) => this.addBook(shelf, book)}
           />
         )} />
       </div>

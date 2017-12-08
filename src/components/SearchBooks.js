@@ -6,24 +6,24 @@ import * as BooksAPI from '../utils/BooksAPI'
 class SearchBooks extends Component {
 
   state = {
-    searchBooks : []
+    searchBooks: []
   }
-  
-  handleChange = (event, libaryBooks) => { 
+
+  handleChange = (event, libaryBooks) => {
     const query = event.target.value
     BooksAPI.search(query).then(searchBooks => {
-    
-    libaryBooks.map(libaryBook => {
-       return searchBooks.map(searchBook => {
+
+      libaryBooks.map(libaryBook => {
+        return searchBooks.map(searchBook => {
           if (libaryBook.id === searchBook.id)
             searchBook.shelf = libaryBook.shelf
           return searchBook
-       })
-    })
+        })
+      })
 
-    if(searchBooks.items && searchBooks.items.length === 0) { 
-      searchBooks = []
-    }
+      if (searchBooks.items && searchBooks.items.length === 0) {
+        searchBooks = []
+      }
 
       this.setState({ searchBooks })
     })
@@ -36,27 +36,27 @@ class SearchBooks extends Component {
 
     return (
       <div className="search-books">
-      <div className="search-books-bar">
-          <Link 
-              to="/"
-              className="close-search"
+        <div className="search-books-bar">
+          <Link
+            to="/"
+            className="close-search"
           >Close</Link>
-        <div className="search-books-input-wrapper">
-          <input 
-            type="text" 
-            placeholder="Search by title or author"
-            onChange={e => this.handleChange(e, libaryBooks)}
-          />
+          <div className="search-books-input-wrapper">
+            <input
+              type="text"
+              placeholder="Search by title or author"
+              onChange={e => this.handleChange(e, libaryBooks)}
+            />
+          </div>
         </div>
-      </div>
-      <div className="search-books-results">
-        <ol className="books-grid"></ol>
-      </div>
-      <ShelfBooks
+        <div className="search-books-results">
+          <ol className="books-grid"></ol>
+        </div>
+        <ShelfBooks
           books={searchBooks}
-          onChangeShelf={addBookHandler}  
-      />
-    </div>
+          onChangeShelf={addBookHandler}
+        />
+      </div>
     )
   }
 }

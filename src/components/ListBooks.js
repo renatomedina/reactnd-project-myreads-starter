@@ -5,7 +5,7 @@ import sortBy from 'sort-by'
 
 import ShelfBooks from './ShelfBooks'
 
-class ListBooks extends Component  {
+class ListBooks extends Component {
 
   getTitleShelf(shelfId) {
     switch (shelfId) {
@@ -21,42 +21,43 @@ class ListBooks extends Component  {
   }
 
   getBooksByShelf(books) {
-    const shelfs = uniq(books.map( book => book.shelf ))
-    
-    return shelfs.map(shelf => {
-      return  {
-        "shelfTitle" : this.getTitleShelf(shelf), 
-        "books": books.filter(book => book.shelf === shelf)
-      }}).sort(sortBy('shelfTitle'))
-  } 
+    const shelfs = uniq(books.map(book => book.shelf))
 
-    render () {
-      const { books = [], onChangeShelf } = this.props
-      const booksByShelf = this.getBooksByShelf(books)
-      console.log(booksByShelf)
-      return (
-        <div>
+    return shelfs.map(shelf => {
+      return {
+        "shelfTitle": this.getTitleShelf(shelf),
+        "books": books.filter(book => book.shelf === shelf)
+      }
+    }).sort(sortBy('shelfTitle'))
+  }
+
+  render() {
+    const { books = [], onChangeShelf } = this.props
+    const booksByShelf = this.getBooksByShelf(books)
+    console.log(booksByShelf)
+    return (
+      <div>
         <div className="list-books-content">
-          <div>  
+          <div>
             {booksByShelf.map(shelf => (
               <div key={shelf.shelfTitle}>
-                <ShelfBooks 
+                <ShelfBooks
                   title={shelf.shelfTitle}
                   books={shelf.books}
-                  onChangeShelf={onChangeShelf}  
+                  onChangeShelf={onChangeShelf}
                 />
               </div>
             ))}
           </div>
         </div>
         <div className="open-search">
-          <Link 
-              to="/search"
+          <Link
+            to="/search"
           >Add a book</Link>
         </div>
       </div>
-      )
-    }
+    )
+  }
 }
 
 export default ListBooks
