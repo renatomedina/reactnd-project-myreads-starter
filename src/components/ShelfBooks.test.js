@@ -11,9 +11,15 @@ describe('<ShelfBooks />', () => {
         expect(mount(<ShelfBooks />))
     })
 
+
+    it('render title if text is different to None', () => {
+        const wrapper = mount(<ShelfBooks title="Teste" />)
+        expect(wrapper.find('h2').length).toBe(1)
+    })
+
     it('not render title if text is None', () => {
         const wrapper = mount(<ShelfBooks title="None" />)
-        expect(wrapper.find('ol').length).toBe(0)
+        expect(wrapper.find('h2').length).toBe(0)
     })
 
     let book = {

@@ -1,5 +1,1 @@
-let mockStorage = {}
-
-module.exports = window.localStorage = {
-  getItem: (key) => mockStorage[key]
-}
+module.exports = window.localStorage.token = '12312123'
