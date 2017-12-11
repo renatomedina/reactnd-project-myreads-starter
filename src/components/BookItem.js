@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export default ({ title = "", author = "", backgroundImage, onChangeShelf, shelf = "none" }) => {
+const BookItem =  ({ title = "", author = "", backgroundImage, onChangeShelf, shelf = "none" }) => {
 
     return (
         <div className="book">
@@ -21,3 +22,13 @@ export default ({ title = "", author = "", backgroundImage, onChangeShelf, shelf
         </div>
     );
 }
+
+BookItem.propTypes = {
+    backgroundImage: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.arrayOf(PropTypes.string).isRequired,
+    shelf: PropTypes.string.isRequired,
+    onChangeShelf: PropTypes.func.isRequired,
+  }
+
+  export default BookItem;
