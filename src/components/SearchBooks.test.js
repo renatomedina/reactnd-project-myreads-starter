@@ -7,4 +7,8 @@ describe('<SearchBooks />', () => {
     it('shallow renders correctly', () => {
       expect(shallow(<SearchBooks />))
     })
+
+    xit('mount renders correctly', () => {
+      expect(mount(<SearchBooks />))
+    })
 })

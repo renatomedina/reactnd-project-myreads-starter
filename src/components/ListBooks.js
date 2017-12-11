@@ -34,7 +34,7 @@ class ListBooks extends Component {
   render() {
     const { books = [], onChangeShelf } = this.props
     const booksByShelf = this.getBooksByShelf(books)
-    console.log(booksByShelf)
+    
     return (
       <div>
         <div className="list-books-content">
