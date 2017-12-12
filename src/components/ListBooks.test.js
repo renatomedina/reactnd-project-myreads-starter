@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ListBooks from './ListBooks';
+import { MemoryRouter } from 'react-router-dom'
 
 describe('<ListBooks />', () => {
 
@@ -46,29 +47,38 @@ describe('<ListBooks />', () => {
     "shelf": "currentlyReading"
   }
 
+  let props = {
+    books: [book],
+    onChangeShelf: jest.fn()
+  }
+
+  const shallowSubject = () => {
+    return shallow(<ListBooks {...props} />)
+  }
+
+  const mountSubject = () => {
+    return mount(<MemoryRouter> <ListBooks {...props} /> </MemoryRouter> )
+  }
+
   it('shallow renders correctly', () => {
-    expect(shallow(<ListBooks />))
+    expect(shallowSubject())
   })
 
-  xit('mount renders correctly', () => {
-    const mockOnChangeShelf = jest.fn()
-    expect(mount(<ListBooks books={[]} onChangeShelf={mockOnChangeShelf} />))
+  it('mount renders correctly', () => {
+    expect(mountSubject())
   })
 
 
   it('test getTitleShelf function return correctly title ', () => {
-    const wrapper = shallow(<ListBooks books={[]} />)
-    expect(wrapper.instance().getTitleShelf('currentlyReading')).toEqual('Currently Reading')
-    expect(wrapper.instance().getTitleShelf('wantToRead')).toEqual('Want to Read')
-    expect(wrapper.instance().getTitleShelf('read')).toEqual('Read')
-    expect(wrapper.instance().getTitleShelf('teste')).toEqual('None')
+    expect(shallowSubject().instance().getTitleShelf('currentlyReading')).toEqual('Currently Reading')
+    expect(shallowSubject().instance().getTitleShelf('wantToRead')).toEqual('Want to Read')
+    expect(shallowSubject().instance().getTitleShelf('read')).toEqual('Read')
+    expect(shallowSubject().instance().getTitleShelf('teste')).toEqual('None')
   })
 
   it('test getBooksByShelf function return correctly object', () => {
-    const wrapper = shallow(<ListBooks books={[book]} />)
-    const obj = wrapper.instance().getBooksByShelf([book])[0]
+    const obj = shallowSubject().instance().getBooksByShelf([book])[0]
     expect(obj.shelfTitle).toEqual('Currently Reading')
     expect(obj.books.length).toBe(1)
   })
-
 })
