@@ -16,7 +16,7 @@ describe('<BookItem />', () => {
     }
 
     it('shallow renders correctly', () => {
-        expect(subject())
+        expect(subject()).toMatchSnapshot()
     })
 
     it('expects render 5 options in select', () => {

@@ -21,7 +21,7 @@ describe('<SearchBooks />', () => {
   }
 
   it('shallow renders correctly', () => {
-    expect(shallowSubject())
+    expect(shallowSubject()).toMatchSnapshot()
   })
 
   it('mount renders correctly', () => {

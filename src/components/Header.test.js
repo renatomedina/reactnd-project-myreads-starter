@@ -4,6 +4,6 @@ import Header from './Header';
 
 describe('<Header />', () => {
     it('shallow renders correctly', () => {
-      expect(shallow(<Header />))
+      expect(shallow(<Header />)).toMatchSnapshot()
     })
 })
