@@ -34,24 +34,4 @@ describe('<BookItem />', () => {
         wrapper.find('select').simulate('change')
         expect(onChangeShelf).toHaveBeenCalledTimes(1)
     })
-
-    describe('Check BookItem props', () => {
-        let wrapper
-
-        beforeEach(() => {
-            wrapper = mount(<BookItem {...props} />)
-        })
-
-        it('receives the shelf prop', () => {
-            expect(wrapper.prop('shelf')).toEqual('read')
-        })
-        
-        xit('receives the author prop', () => {
-            expect(bookItem.prop('author')).toBe(props.author)
-        })
-
-        xit('receives the onChangeShelf handler', () => {
-            expect(bookItem.prop('onChangeShelf')).toBe(props.onChangeShelf)
-        })
-    })
 }) 
