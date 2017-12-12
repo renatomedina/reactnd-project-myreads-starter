@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const BookItem =  ({ title = "", author = "", backgroundImage, onChangeShelf, shelf = "none" }) => {
-
+const BookItem =  ({ title = "", author = "", backgroundImage = "", onChangeShelf, shelf = "none" }) => {
     return (
         <div className="book">
             <div className="book-top">
@@ -24,11 +23,11 @@ const BookItem =  ({ title = "", author = "", backgroundImage, onChangeShelf, sh
 }
 
 BookItem.propTypes = {
-    backgroundImage: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.arrayOf(PropTypes.string).isRequired,
-    shelf: PropTypes.string.isRequired,
-    onChangeShelf: PropTypes.func.isRequired,
+    backgroundImage: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.arrayOf(PropTypes.string),
+    shelf: PropTypes.string,
+    onChangeShelf: PropTypes.func,
   }
 
   export default BookItem;
