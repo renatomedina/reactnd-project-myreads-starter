@@ -119,6 +119,10 @@ body, .app {
   text-align: left;
 }
 
+.book-large {
+  width: 280px;
+}
+
 .book {
   width: 140px;
 }
@@ -133,11 +137,36 @@ body, .app {
   color: #999;
 }
 
+.book-authors.detail {
+  font-size: 1em;
+  color: #999;
+}
+
+.book-title-detail {
+  font-size: 1.6em;
+  margin-top: 80px;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-weight: "bold"
+}
+
+.book-description-detail {
+  font-size: 0.8em;
+  font-family: "Times New Roman", Georgia, Serif;
+}
+
 .book-top {
   position: relative;
   height: 200px;
   display: flex;
   align-items: flex-end;
+}
+
+.book-detail {
+  padding-top: 20px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .book-shelf-changer {
