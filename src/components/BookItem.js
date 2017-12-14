@@ -1,11 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const BookItem =  ({ title = "", author = "", backgroundImage = "", onChangeShelf, shelf = "none" }) => {
+const BookItem = ({ id = "", title = "", author = "", backgroundImage = "", onChangeShelf, clickBook, shelf = "none" }) => {
     return (
         <div className="book">
             <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${backgroundImage})` }}></div>
+                <button onClick={e => { clickBook(e) }} style={{ border: 'none' }}>
+                    <Link to={`/book/${id}`}>
+                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${backgroundImage})` }}></div>
+                    </Link>
+                </button>
                 <div className="book-shelf-changer">
                     <select value={shelf} onChange={e => { onChangeShelf(e) }}>
                         <option value="none" disabled>Move to...</option>
@@ -28,6 +33,7 @@ BookItem.propTypes = {
     author: PropTypes.arrayOf(PropTypes.string),
     shelf: PropTypes.string,
     onChangeShelf: PropTypes.func,
-  }
+    clickBook: PropTypes.func
+}
 
-  export default BookItem;
+export default BookItem;

@@ -32,7 +32,7 @@ class ListBooks extends Component {
   }
 
   render() {
-    const { books = [], onChangeShelf } = this.props
+    const { books = [], onChangeShelf, clickBook } = this.props
     const booksByShelf = this.getBooksByShelf(books)
     
     return (
@@ -44,6 +44,7 @@ class ListBooks extends Component {
                 <ShelfBooks
                   title={shelf.shelfTitle}
                   books={shelf.books}
+                  clickBook={clickBook}
                   onChangeShelf={onChangeShelf}
                 />
               </div>
