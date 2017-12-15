@@ -10,13 +10,17 @@ class SearchBooks extends Component {
     searchBooks: []
   }
 
-  handleChange = (event, libaryBooks) => {
-    const query = event.target.value
-    BooksAPI.search(query).then(searchBooks => {
+  handleChange = (query, libaryBooks) => {
 
-      if (searchBooks && searchBooks.items && searchBooks.items.length === 0) {
-        searchBooks = []
-      }
+    query = query || ' '
+
+    BooksAPI.search(query, 10).then(searchBooks => {
+
+      searchBooks = searchBooks.error ? [] : searchBooks
+
+      // if (searchBooks && searchBooks.items && searchBooks.items.length === 0) {
+      //   searchBooks = []
+      // }
 
       libaryBooks.map(libaryBook => {
         return searchBooks.map(searchBook => {
@@ -48,7 +52,7 @@ class SearchBooks extends Component {
               <input
                 type="text"
                 placeholder="Search by title or author"
-                onChange={e => this.handleChange(e, libaryBooks)}
+                onChange={e => this.handleChange(e.target.value, libaryBooks)}
               />
             </Debounce>
           </div>
