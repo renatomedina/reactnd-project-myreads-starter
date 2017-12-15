@@ -26,8 +26,6 @@ class BooksApp extends React.Component {
         const booksUpdating = prev.books.filter(bookUpdatingId =>
           bookUpdatingId !== book.id
         )
-        console.log("atualizou estado para ")
-        booksUpdating.map(book => console.log(`book: titulo: ${book.title} shelf: ${book.shelf}`))
         return { book: booksUpdating }
       })
       this.loadBooks()
@@ -46,10 +44,7 @@ class BooksApp extends React.Component {
   }
 
   loadBooks = () => {
-    console.log('entrou load books')
     BooksAPI.getAll().then((books) => {
-      console.log(books)
-
       this.setState({ books })
     })
   }
