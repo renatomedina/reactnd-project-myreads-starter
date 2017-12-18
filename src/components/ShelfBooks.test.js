@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ShelfBooks from './ShelfBooks';
-import book from '../__mocks__/BookItem'
+import { MemoryRouter } from 'react-router-dom'
+import book from '../__mocks__/BookItem';
 
 describe('<ShelfBooks />', () => {
 
@@ -16,7 +17,7 @@ describe('<ShelfBooks />', () => {
     }
 
     const mountSubject = () => {
-        return mount(<ShelfBooks {...props} />)
+        return mount(<MemoryRouter><ShelfBooks {...props} /></MemoryRouter>)
     }
 
     it('shallow renders correctly', () => {

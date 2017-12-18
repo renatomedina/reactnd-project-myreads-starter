@@ -6,15 +6,15 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BookItem
     author={
-      Array [
-        "Marcio G.",
-      ]
+        Array [
+            "Marcio G.",
+          ]
     }
     backgroundImage="https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg"
     onChangeShelf={[Function]}
     shelf="read"
     title="React Development"
-  />,
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -30,63 +30,77 @@ ShallowWrapper {
       "children": Array [
         <div
           className="book-top"
-        >
-          <div
-            className="book-cover"
-            style={
-              Object {
-                "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                "height": 193,
-                "width": 128,
-              }
-            }
-          />
-          <div
-            className="book-shelf-changer"
+>
+          <button
+                    onClick={[Function]}
+                    style={
+                              Object {
+                                        "border": "none",
+                                      }
+                    }
           >
-            <select
-              onChange={[Function]}
-              value="read"
-            >
-              <option
-                disabled={true}
-                value="none"
-              >
-                Move to...
-              </option>
-              <option
-                value="currentlyReading"
-              >
-                Currently Reading
-              </option>
-              <option
-                value="wantToRead"
-              >
-                Want to Read
-              </option>
-              <option
-                value="read"
-              >
-                Read
-              </option>
-              <option
-                value="none"
-              >
-                None
-              </option>
-            </select>
+                    <Link
+                              replace={false}
+                              to="/book/"
+                    >
+                              <div
+                                        className="book-cover"
+                                        style={
+                                                  Object {
+                                                            "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                            "height": 193,
+                                                            "width": 128,
+                                                          }
+                                        }
+                              />
+                    </Link>
+          </button>
+          <div
+                    className="book-shelf-changer"
+          >
+                    <select
+                              onChange={[Function]}
+                              value="read"
+                    >
+                              <option
+                                        disabled={true}
+                                        value="none"
+                              >
+                                        Move to...
+                              </option>
+                              <option
+                                        value="currentlyReading"
+                              >
+                                        Currently Reading
+                              </option>
+                              <option
+                                        value="wantToRead"
+                              >
+                                        Want to Read
+                              </option>
+                              <option
+                                        value="read"
+                              >
+                                        Read
+                              </option>
+                              <option
+                                        value="none"
+                              >
+                                        None
+                              </option>
+                    </select>
           </div>
-        </div>,
+</div>,
         <div
           className="book-title"
-        >
+>
           React Development
-        </div>,
+</div>,
         <div
           className="book-authors"
-        >
+>
           Marcio G.
-        </div>,
+</div>,
       ],
       "className": "book",
     },
@@ -98,51 +112,65 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <div
-              className="book-cover"
+            <button
+              onClick={[Function]}
               style={
-                Object {
-                  "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                  "height": 193,
-                  "width": 128,
-                }
+                            Object {
+                                          "border": "none",
+                                        }
               }
-            />,
+>
+              <Link
+                            replace={false}
+                            to="/book/"
+              >
+                            <div
+                                          className="book-cover"
+                                          style={
+                                                        Object {
+                                                                      "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                                      "height": 193,
+                                                                      "width": 128,
+                                                                    }
+                                          }
+                            />
+              </Link>
+</button>,
             <div
               className="book-shelf-changer"
-            >
+>
               <select
-                onChange={[Function]}
-                value="read"
+                            onChange={[Function]}
+                            value="read"
               >
-                <option
-                  disabled={true}
-                  value="none"
-                >
-                  Move to...
-                </option>
-                <option
-                  value="currentlyReading"
-                >
-                  Currently Reading
-                </option>
-                <option
-                  value="wantToRead"
-                >
-                  Want to Read
-                </option>
-                <option
-                  value="read"
-                >
-                  Read
-                </option>
-                <option
-                  value="none"
-                >
-                  None
-                </option>
+                            <option
+                                          disabled={true}
+                                          value="none"
+                            >
+                                          Move to...
+                            </option>
+                            <option
+                                          value="currentlyReading"
+                            >
+                                          Currently Reading
+                            </option>
+                            <option
+                                          value="wantToRead"
+                            >
+                                          Want to Read
+                            </option>
+                            <option
+                                          value="read"
+                            >
+                                          Read
+                            </option>
+                            <option
+                                          value="none"
+                            >
+                                          None
+                            </option>
               </select>
-            </div>,
+</div>,
           ],
           "className": "book-top",
         },
@@ -153,16 +181,65 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "book-cover",
+              "children": <Link
+                replace={false}
+                to="/book/"
+>
+                <div
+                                className="book-cover"
+                                style={
+                                                Object {
+                                                                "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                                "height": 193,
+                                                                "width": 128,
+                                                              }
+                                }
+                />
+</Link>,
+              "onClick": [Function],
               "style": Object {
-                "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                "height": 193,
-                "width": 128,
+                "border": "none",
               },
             },
             "ref": null,
-            "rendered": null,
-            "type": "div",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <div
+                  className="book-cover"
+                  style={
+                                    Object {
+                                                      "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                      "height": 193,
+                                                      "width": 128,
+                                                    }
+                  }
+/>,
+                "replace": false,
+                "to": "/book/",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "book-cover",
+                  "style": Object {
+                    "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                    "height": 193,
+                    "width": 128,
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            "type": "button",
           },
           Object {
             "instance": null,
@@ -172,34 +249,34 @@ ShallowWrapper {
               "children": <select
                 onChange={[Function]}
                 value="read"
-              >
+>
                 <option
-                  disabled={true}
-                  value="none"
+                                disabled={true}
+                                value="none"
                 >
-                  Move to...
+                                Move to...
                 </option>
                 <option
-                  value="currentlyReading"
+                                value="currentlyReading"
                 >
-                  Currently Reading
+                                Currently Reading
                 </option>
                 <option
-                  value="wantToRead"
+                                value="wantToRead"
                 >
-                  Want to Read
+                                Want to Read
                 </option>
                 <option
-                  value="read"
+                                value="read"
                 >
-                  Read
+                                Read
                 </option>
                 <option
-                  value="none"
+                                value="none"
                 >
-                  None
+                                None
                 </option>
-              </select>,
+</select>,
               "className": "book-shelf-changer",
             },
             "ref": null,
@@ -212,29 +289,29 @@ ShallowWrapper {
                   <option
                     disabled={true}
                     value="none"
-                  >
+>
                     Move to...
-                  </option>,
+</option>,
                   <option
                     value="currentlyReading"
-                  >
+>
                     Currently Reading
-                  </option>,
+</option>,
                   <option
                     value="wantToRead"
-                  >
+>
                     Want to Read
-                  </option>,
+</option>,
                   <option
                     value="read"
-                  >
+>
                     Read
-                  </option>,
+</option>,
                   <option
                     value="none"
-                  >
+>
                     None
-                  </option>,
+</option>,
                 ],
                 "onChange": [Function],
                 "value": "read",
@@ -350,63 +427,77 @@ ShallowWrapper {
         "children": Array [
           <div
             className="book-top"
-          >
-            <div
-              className="book-cover"
-              style={
-                Object {
-                  "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                  "height": 193,
-                  "width": 128,
-                }
-              }
-            />
-            <div
-              className="book-shelf-changer"
+>
+            <button
+                        onClick={[Function]}
+                        style={
+                                    Object {
+                                                "border": "none",
+                                              }
+                        }
             >
-              <select
-                onChange={[Function]}
-                value="read"
-              >
-                <option
-                  disabled={true}
-                  value="none"
-                >
-                  Move to...
-                </option>
-                <option
-                  value="currentlyReading"
-                >
-                  Currently Reading
-                </option>
-                <option
-                  value="wantToRead"
-                >
-                  Want to Read
-                </option>
-                <option
-                  value="read"
-                >
-                  Read
-                </option>
-                <option
-                  value="none"
-                >
-                  None
-                </option>
-              </select>
+                        <Link
+                                    replace={false}
+                                    to="/book/"
+                        >
+                                    <div
+                                                className="book-cover"
+                                                style={
+                                                            Object {
+                                                                        "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                                        "height": 193,
+                                                                        "width": 128,
+                                                                      }
+                                                }
+                                    />
+                        </Link>
+            </button>
+            <div
+                        className="book-shelf-changer"
+            >
+                        <select
+                                    onChange={[Function]}
+                                    value="read"
+                        >
+                                    <option
+                                                disabled={true}
+                                                value="none"
+                                    >
+                                                Move to...
+                                    </option>
+                                    <option
+                                                value="currentlyReading"
+                                    >
+                                                Currently Reading
+                                    </option>
+                                    <option
+                                                value="wantToRead"
+                                    >
+                                                Want to Read
+                                    </option>
+                                    <option
+                                                value="read"
+                                    >
+                                                Read
+                                    </option>
+                                    <option
+                                                value="none"
+                                    >
+                                                None
+                                    </option>
+                        </select>
             </div>
-          </div>,
+</div>,
           <div
             className="book-title"
-          >
+>
             React Development
-          </div>,
+</div>,
           <div
             className="book-authors"
-          >
+>
             Marcio G.
-          </div>,
+</div>,
         ],
         "className": "book",
       },
@@ -418,51 +509,65 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <div
-                className="book-cover"
+              <button
+                onClick={[Function]}
                 style={
-                  Object {
-                    "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                    "height": 193,
-                    "width": 128,
-                  }
+                                Object {
+                                                "border": "none",
+                                              }
                 }
-              />,
+>
+                <Link
+                                replace={false}
+                                to="/book/"
+                >
+                                <div
+                                                className="book-cover"
+                                                style={
+                                                                Object {
+                                                                                "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                                                "height": 193,
+                                                                                "width": 128,
+                                                                              }
+                                                }
+                                />
+                </Link>
+</button>,
               <div
                 className="book-shelf-changer"
-              >
+>
                 <select
-                  onChange={[Function]}
-                  value="read"
+                                onChange={[Function]}
+                                value="read"
                 >
-                  <option
-                    disabled={true}
-                    value="none"
-                  >
-                    Move to...
-                  </option>
-                  <option
-                    value="currentlyReading"
-                  >
-                    Currently Reading
-                  </option>
-                  <option
-                    value="wantToRead"
-                  >
-                    Want to Read
-                  </option>
-                  <option
-                    value="read"
-                  >
-                    Read
-                  </option>
-                  <option
-                    value="none"
-                  >
-                    None
-                  </option>
+                                <option
+                                                disabled={true}
+                                                value="none"
+                                >
+                                                Move to...
+                                </option>
+                                <option
+                                                value="currentlyReading"
+                                >
+                                                Currently Reading
+                                </option>
+                                <option
+                                                value="wantToRead"
+                                >
+                                                Want to Read
+                                </option>
+                                <option
+                                                value="read"
+                                >
+                                                Read
+                                </option>
+                                <option
+                                                value="none"
+                                >
+                                                None
+                                </option>
                 </select>
-              </div>,
+</div>,
             ],
             "className": "book-top",
           },
@@ -473,16 +578,65 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "book-cover",
+                "children": <Link
+                  replace={false}
+                  to="/book/"
+>
+                  <div
+                                    className="book-cover"
+                                    style={
+                                                      Object {
+                                                                        "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                                        "height": 193,
+                                                                        "width": 128,
+                                                                      }
+                                    }
+                  />
+</Link>,
+                "onClick": [Function],
                 "style": Object {
-                  "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
-                  "height": 193,
-                  "width": 128,
+                  "border": "none",
                 },
               },
               "ref": null,
-              "rendered": null,
-              "type": "div",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <div
+                    className="book-cover"
+                    style={
+                                        Object {
+                                                            "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                                                            "height": 193,
+                                                            "width": 128,
+                                                          }
+                    }
+/>,
+                  "replace": false,
+                  "to": "/book/",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "book-cover",
+                    "style": Object {
+                      "backgroundImage": "url(https://i.ytimg.com/vi/PKffm2uI4dk/maxresdefault.jpg)",
+                      "height": 193,
+                      "width": 128,
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+              "type": "button",
             },
             Object {
               "instance": null,
@@ -492,34 +646,34 @@ ShallowWrapper {
                 "children": <select
                   onChange={[Function]}
                   value="read"
-                >
+>
                   <option
-                    disabled={true}
-                    value="none"
+                                    disabled={true}
+                                    value="none"
                   >
-                    Move to...
+                                    Move to...
                   </option>
                   <option
-                    value="currentlyReading"
+                                    value="currentlyReading"
                   >
-                    Currently Reading
+                                    Currently Reading
                   </option>
                   <option
-                    value="wantToRead"
+                                    value="wantToRead"
                   >
-                    Want to Read
+                                    Want to Read
                   </option>
                   <option
-                    value="read"
+                                    value="read"
                   >
-                    Read
+                                    Read
                   </option>
                   <option
-                    value="none"
+                                    value="none"
                   >
-                    None
+                                    None
                   </option>
-                </select>,
+</select>,
                 "className": "book-shelf-changer",
               },
               "ref": null,
@@ -532,29 +686,29 @@ ShallowWrapper {
                     <option
                       disabled={true}
                       value="none"
-                    >
+>
                       Move to...
-                    </option>,
+</option>,
                     <option
                       value="currentlyReading"
-                    >
+>
                       Currently Reading
-                    </option>,
+</option>,
                     <option
                       value="wantToRead"
-                    >
+>
                       Want to Read
-                    </option>,
+</option>,
                     <option
                       value="read"
-                    >
+>
                       Read
-                    </option>,
+</option>,
                     <option
                       value="none"
-                    >
+>
                       None
-                    </option>,
+</option>,
                   ],
                   "onChange": [Function],
                   "value": "read",

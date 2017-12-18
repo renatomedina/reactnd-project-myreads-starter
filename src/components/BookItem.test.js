@@ -24,7 +24,7 @@ describe('<BookItem />', () => {
     })
 
     it('sets the prop backgroundImage as the background image for the book-cover div', () => {
-        const div = subject().find('div.book > div.book-top > div.book-cover')
+        const div = subject().find('Link > div.book-cover')
         expect(div.props().style.backgroundImage).toBe(`url(${props.backgroundImage})`)
     })
 

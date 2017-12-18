@@ -18,10 +18,6 @@ class SearchBooks extends Component {
 
       searchBooks = searchBooks.error ? [] : searchBooks
 
-      // if (searchBooks && searchBooks.items && searchBooks.items.length === 0) {
-      //   searchBooks = []
-      // }
-
       libaryBooks.map(libaryBook => {
         return searchBooks.map(searchBook => {
           if (libaryBook.id === searchBook.id) {
